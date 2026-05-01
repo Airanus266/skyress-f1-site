@@ -318,7 +318,7 @@ function ExhaustParticles({ velocity }: { velocity: number }) {
 // CAMERA
 // ─────────────────────────────────────────────────────────────
 function ChaseCam({ carRef, phase, velocity }: {
-  carRef: React.RefObject<THREE.Group>;
+  carRef: React.RefObject<THREE.Group | null>;
   phase: Phase;
   velocity: number;
 }) {
@@ -393,7 +393,7 @@ function F1Car({ modelUrl, isObj, phase, carRef, velocity, inspectMode }: {
   modelUrl: string;
   isObj: boolean;
   phase: Phase;
-  carRef: React.RefObject<THREE.Group>;
+  carRef: React.RefObject<THREE.Group | null>;
   velocity: number;
   inspectMode: boolean;
 }) {
@@ -545,7 +545,7 @@ function PhysicsTick({ velRef, distRef, raceStartRef, phase, setTel, setPhase, s
   setTel: (t: TelemetryState) => void;
   setPhase: (p: Phase) => void;
   setDistanceTraveled: (d: number) => void;
-  carRef: React.RefObject<THREE.Group>;
+  carRef: React.RefObject<THREE.Group | null>;
   onFinish: (timeMs: number) => void;
 }) {
   const phaseRef = useRef(phase);
