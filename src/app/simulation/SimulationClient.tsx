@@ -263,7 +263,7 @@ function ExhaustParticles({ velocity }: { velocity: number }) {
   const posArr = useRef(new Float32Array(count * 3));
   const velArr = useRef(new Float32Array(count * 3));
   const ages = useRef(new Float32Array(count));
-  const attrRef = useRef<THREE.BufferAttribute>(null);
+  const attrRef = useRef<THREE.BufferAttribute | null>(null);
 
   useEffect(() => {
     for (let i = 0; i < count; i++) ages.current[i] = Math.random();
@@ -298,9 +298,8 @@ function ExhaustParticles({ velocity }: { velocity: number }) {
         <bufferAttribute
           ref={attrRef}
           attach="attributes-position"
-          array={posArr.current}
+          args={[posArr.current, 3]}
           count={count}
-          itemSize={3}
         />
       </bufferGeometry>
       <pointsMaterial
