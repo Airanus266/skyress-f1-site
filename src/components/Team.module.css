@@ -1,0 +1,213 @@
+.teamSection {
+  background-color: transparent;
+  position: relative;
+  z-index: 5;
+}
+
+.container {
+  padding-top: 100px;
+}
+
+.sectionHeader {
+  margin-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  text-align: center;
+}
+
+.sectionTitle {
+  font-size: clamp(3rem, 6vw, 5rem);
+  line-height: 0.9;
+}
+
+.textOutline {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.4);
+}
+
+.textRed {
+  color: var(--color-red);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  perspective: 1500px; 
+}
+
+.card {
+  background-color: rgba(10, 10, 12, 0.6);
+  border: 1px solid var(--color-border);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  height: 480px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: inset 0 0 0 1px transparent;
+  transition: box-shadow 0.4s ease;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.cardNumber {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: 700;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255,255,255,0.1);
+  z-index: 10;
+  line-height: 0.8;
+  transition: all var(--transition-smooth);
+}
+
+.card:hover .cardNumber {
+  color: rgba(225, 6, 0, 0.1);
+  -webkit-text-stroke: 1px var(--color-red);
+  transform: scale(1.1) translate(-5px, 5px);
+}
+
+.cardImageWrapper {
+  position: relative;
+  width: 100%;
+  flex-grow: 1;
+  overflow: hidden;
+  background: var(--color-black);
+}
+
+.cardImage {
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s;
+  filter: grayscale(100%) contrast(1.2) brightness(0.7);
+}
+
+.card:hover .cardImage {
+  transform: scale(1.08);
+  filter: grayscale(0%) contrast(1.1) brightness(1);
+}
+
+.cardGradientTop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, transparent 100%);
+  z-index: 1;
+}
+
+.cardGradientBottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  background: linear-gradient(0deg, rgba(10,10,12,1) 0%, rgba(10,10,12,0.6) 40%, transparent 100%);
+  z-index: 1;
+  transition: height var(--transition-smooth);
+}
+
+.card:hover .cardGradientBottom {
+  height: 40%;
+}
+
+.cardContent {
+  padding: 30px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 5;
+}
+
+.cardRole {
+  font-family: var(--font-display);
+  color: var(--color-red);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  transform: translateY(10px);
+  opacity: 0.8;
+  transition: all var(--transition-smooth);
+}
+
+.cardName {
+  font-size: 2.2rem;
+  letter-spacing: -0.02em;
+  color: var(--color-white);
+  transform: translateY(10px);
+  transition: all var(--transition-smooth);
+}
+
+.cardCrosshair {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  width: 20px;
+  height: 20px;
+  border-right: 2px solid rgba(255,255,255,0.2);
+  border-bottom: 2px solid rgba(255,255,255,0.2);
+  transition: border-color var(--transition-smooth);
+}
+
+.cardData {
+  position: absolute;
+  bottom: 40px;
+  right: 60px;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.3);
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all var(--transition-smooth);
+}
+
+.card:hover {
+  transform: translateY(-15px) rotateX(5deg) scale(1.02);
+  border-color: rgba(225, 6, 0, 0.4);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(225, 6, 0, 0.1);
+  background-color: var(--color-card-hover);
+}
+
+.card:hover::after {
+  box-shadow: inset 0 0 0 1px rgba(225, 6, 0, 0.5);
+}
+
+.card:hover .cardRole {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.card:hover .cardName {
+  transform: translateY(0);
+}
+
+.card:hover .cardCrosshair {
+  border-color: var(--color-red);
+}
+
+.card:hover .cardData {
+  opacity: 1;
+  transform: translateX(0);
+  color: var(--color-red);
+}

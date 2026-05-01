@@ -1,0 +1,132 @@
+.footerSection {
+  position: relative;
+  background-color: var(--color-black);
+  padding: 150px 0 50px 0;
+  overflow: hidden;
+  border-top: 1px solid var(--color-border);
+}
+
+.ctaBackground {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 500px;
+  background: radial-gradient(circle, rgba(225,6,0,0.1) 0%, rgba(0,0,0,0) 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content {
+  text-align: center;
+  max-width: 800px;
+  margin-bottom: 150px;
+}
+
+.title {
+  font-size: clamp(3rem, 6vw, 5rem);
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+.textRed {
+  color: var(--color-red);
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: var(--color-text-muted);
+  margin-bottom: 50px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 36px;
+  background-color: transparent;
+  color: var(--color-white);
+  border: 1px solid rgba(225, 6, 0, 0.5);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  transition: all var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+  z-index: 1;
+}
+
+.ctaButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--color-red);
+  transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: -1;
+}
+
+.ctaButton:hover::before {
+  left: 0;
+}
+
+.ctaButton:hover {
+  border-color: var(--color-red);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(225, 6, 0, 0.25);
+}
+
+.icon {
+  margin-left: 15px;
+  transition: transform var(--transition-smooth);
+}
+
+.ctaButton:hover .icon {
+  transform: translateX(5px);
+}
+
+.bottomBar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 600px) {
+  .bottomBar {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--color-white);
+  opacity: 0.7;
+}
+
+.copyright {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}

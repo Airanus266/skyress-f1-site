@@ -1,0 +1,131 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  z-index: 1000;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid transparent;
+}
+
+.navbar.scrolled {
+  background-color: rgba(10, 10, 12, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+  height: 70px;
+}
+
+.navContainer {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-white);
+  z-index: 1001; /* Above mobile menu */
+}
+
+.logoIcon {
+  width: 32px;
+  height: 32px;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.navLinks a:not(.navBtn) {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.8;
+  position: relative;
+}
+
+.navLinks a:not(.navBtn)::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--color-red);
+  transition: width var(--transition-smooth);
+}
+
+.navLinks a:not(.navBtn):hover {
+  opacity: 1;
+}
+
+.navLinks a:not(.navBtn):hover::after {
+  width: 100%;
+}
+
+.navBtn {
+  background-color: transparent;
+  border: 1px solid var(--color-red);
+  color: var(--color-white);
+  padding: 8px 24px;
+  border-radius: 2px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all var(--transition-smooth);
+}
+
+.navBtn:hover {
+  background-color: var(--color-red);
+  box-shadow: 0 0 15px var(--color-red-glow);
+}
+
+.mobileToggle {
+  display: none;
+  color: var(--color-white);
+  z-index: 1001;
+}
+
+@media (max-width: 900px) {
+  .mobileToggle {
+    display: block;
+  }
+  
+  .navLinks {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--color-dark);
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    align-items: center;
+    transition: right var(--transition-smooth);
+  }
+  
+  .navLinks.mobileOpen {
+    right: 0;
+  }
+}

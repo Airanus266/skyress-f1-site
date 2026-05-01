@@ -1,0 +1,177 @@
+.highlightsSection {
+  background-color: transparent;
+  position: relative;
+  z-index: 5;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+}
+
+.missionCard {
+  background: rgba(10, 10, 12, 0.8);
+  padding: 60px 50px;
+  position: relative;
+  border-left: 2px solid var(--color-red);
+}
+
+.techBorderTop {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 2px;
+  background-color: var(--color-border-hover);
+}
+
+.techBorderBottom {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100px;
+  height: 2px;
+  background-color: var(--color-border-hover);
+}
+
+.brandTag {
+  margin-bottom: 25px;
+}
+
+.missionTitle {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  line-height: 1;
+  color: var(--color-white);
+  margin-bottom: 25px;
+}
+
+.textRed {
+  color: var(--color-red);
+}
+
+.missionText {
+  font-size: 1.15rem;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  margin-bottom: 40px;
+}
+
+.signatureBlock {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+}
+
+.signatureText {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+@media (max-width: 500px) {
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.statBlock {
+  background-color: rgba(15, 15, 18, 0.9);
+  border: 1px solid var(--color-border);
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all var(--transition-smooth);
+}
+
+.statBlock:hover {
+  background-color: var(--color-card-hover);
+  border-color: rgba(225, 6, 0, 0.4);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.crosshairTopLeft {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 10px;
+  height: 10px;
+  border-top: 1px solid rgba(255,255,255,0.3);
+  border-left: 1px solid rgba(255,255,255,0.3);
+}
+
+.crosshairBottomRight {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  width: 10px;
+  height: 10px;
+  border-bottom: 1px solid rgba(225,6,0,0.5);
+  border-right: 1px solid rgba(225,6,0,0.5);
+}
+
+.statLabel {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-red);
+  margin-bottom: 15px;
+}
+
+.statValue {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  line-height: 1;
+  font-weight: 700;
+  color: var(--color-white);
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.statUnit {
+  font-size: 1.4rem;
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.statBar {
+  width: 100%;
+  height: 3px;
+  background: var(--color-dark);
+  position: relative;
+  overflow: hidden;
+  margin-top: auto;
+}
+
+.statBar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 60%;
+  background-color: var(--color-red);
+}
+
+.statBlock:nth-child(2) .statBar::after { width: 80%; }
+.statBlock:nth-child(3) .statBar::after { width: 95%; }
+.statBlock:nth-child(4) .statBar::after { width: 70%; }

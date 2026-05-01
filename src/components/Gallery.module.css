@@ -1,0 +1,137 @@
+.gallerySection {
+  background-color: transparent;
+  position: relative;
+  z-index: 5;
+  padding-bottom: 120px;
+}
+
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.sectionTitle {
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  text-align: center;
+}
+
+.textRed {
+  color: var(--color-red);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  grid-auto-rows: 450px;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 350px;
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  border-radius: 2px;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.02); /* Bright white base for multiply blend if needed */
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  transition: all var(--transition-smooth);
+}
+
+.imageWrapper:hover {
+  border-color: rgba(225, 6, 0, 0.4);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+  transform: translateY(-5px);
+}
+
+.techFrame {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  border: 1px solid rgba(255,255,255,0.05);
+  pointer-events: none;
+  z-index: 5;
+  transition: all var(--transition-smooth);
+}
+
+.imageWrapper:hover .techFrame {
+  border-color: rgba(225, 6, 0, 0.2);
+  top: 20px; left: 20px; right: 20px; bottom: 20px;
+}
+
+.wide {
+  grid-column: span 2;
+  height: 600px;
+  /* Specific styling for the wide car render wrapper */
+  background: radial-gradient(circle, rgba(225,6,0,0.1) 0%, transparent 60%);
+}
+
+@media (max-width: 768px) {
+  .wide {
+    grid-column: span 1;
+    height: 400px;
+  }
+}
+
+.image {
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s;
+  /* Basic image treatment */
+  filter: saturate(0.8) contrast(1.1) brightness(0.9);
+}
+
+.imageWrapper:hover .image {
+  transform: scale(1.03);
+  filter: saturate(1.1) contrast(1.15) brightness(1);
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 80px 40px 30px 40px;
+  background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: flex-end;
+  z-index: 10;
+}
+
+.imageWrapper:hover .overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.captionHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.captionID {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  color: var(--color-red);
+  letter-spacing: 0.2em;
+}
+
+.captionAlt {
+  color: var(--color-white);
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 700;
+}

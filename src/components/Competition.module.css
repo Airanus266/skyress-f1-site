@@ -1,0 +1,134 @@
+.competitionSection {
+  background-color: var(--color-dark);
+  border-top: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+.splitLayout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .splitLayout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.textContent {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.badge {
+  color: var(--color-red);
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  font-size: 0.9rem;
+}
+
+.title {
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  line-height: 1.1;
+  color: var(--color-white);
+}
+
+.textRed {
+  color: var(--color-red);
+}
+
+.description {
+  font-size: 1.15rem;
+  color: var(--color-text-muted);
+  max-width: 500px;
+}
+
+.decorativeLine {
+  width: 60px;
+  height: 4px;
+  background-color: var(--color-red);
+  margin-top: 20px;
+  position: relative;
+}
+
+.decorativeLine::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 70px;
+  width: 15px;
+  height: 4px;
+  background-color: var(--color-red);
+}
+
+.cardsContent {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.infoCard {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  padding: 30px;
+  border-radius: 4px;
+  position: relative;
+  transition: all var(--transition-smooth);
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 20px;
+}
+
+.infoCard::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background-color: transparent;
+  transition: background-color var(--transition-smooth);
+}
+
+.infoCard:hover {
+  background-color: var(--color-card-hover);
+  transform: translateX(-10px);
+}
+
+.infoCard:hover::before {
+  background-color: var(--color-red);
+}
+
+.cardBoxTitle {
+  font-size: 1.4rem;
+  color: var(--color-white);
+  margin-bottom: 8px;
+}
+
+.cardBoxText {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+.boxArrow {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.2);
+  transition: color var(--transition-smooth), transform var(--transition-smooth);
+}
+
+.infoCard:hover .boxArrow {
+  color: var(--color-red);
+  transform: translateX(5px);
+}
+
+.highlightCard {
+  border-color: rgba(225, 6, 0, 0.3);
+  background: linear-gradient(90deg, rgba(225,6,0,0.05) 0%, transparent 100%);
+}

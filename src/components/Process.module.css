@@ -1,0 +1,258 @@
+.processSection {
+  background-color: transparent;
+  padding-bottom: 200px;
+  position: relative;
+  z-index: 5;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 120px;
+}
+
+.title {
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  line-height: 0.9;
+}
+
+.textOutline {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.4);
+}
+
+.textRed {
+  color: var(--color-red);
+}
+
+.gridContainer {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.lineContainer {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 100%;
+  z-index: 10;
+}
+
+@media (max-width: 768px) {
+  .lineContainer {
+    left: 30px;
+  }
+}
+
+.lineBase {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-border);
+}
+
+.lineFill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background-color: var(--color-red);
+  box-shadow: 0 0 15px var(--color-red);
+}
+
+/* MINI CAR TRACKER */
+.miniCarTracker {
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 50px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.miniCarTracker svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 5px 10px rgba(0,0,0,0.8));
+  position: relative;
+  z-index: 2;
+}
+
+.carGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle, rgba(225,6,0,0.6) 0%, transparent 60%);
+  z-index: 1;
+  filter: blur(5px);
+  opacity: 0.8;
+}
+
+.stepsList {
+  display: flex;
+  flex-direction: column;
+  gap: 120px;
+  position: relative;
+  z-index: 5;
+}
+
+.stepCard {
+  display: flex;
+  position: relative;
+  width: 50%;
+}
+
+.stepLeft {
+  justify-content: flex-end;
+  padding-right: 80px;
+  text-align: right;
+}
+
+.stepRight {
+  align-self: flex-end;
+  padding-left: 80px;
+}
+
+@media (max-width: 768px) {
+  .stepCard {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .stepLeft, .stepRight {
+    align-self: flex-start;
+    justify-content: flex-start;
+    padding-left: 80px;
+    padding-right: 0;
+    text-align: left;
+  }
+}
+
+.stepDot {
+  position: absolute;
+  top: 40px; /* Align with step header */
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--color-dark);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 0 6px var(--color-black);
+  z-index: 8;
+  transition: all 0.4s ease;
+}
+
+.stepLeft .stepDot {
+  right: -12px;
+}
+
+.stepRight .stepDot {
+  left: -12px;
+}
+
+@media (max-width: 768px) {
+  .stepLeft .stepDot, .stepRight .stepDot {
+    left: 18px;
+    right: auto;
+  }
+}
+
+.stepContent {
+  background: linear-gradient(145deg, rgba(20,20,24,0.9) 0%, rgba(10,10,12,0.9) 100%);
+  padding: 40px;
+  border-radius: 2px;
+  border: 1px solid var(--color-border);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.stepContent:hover {
+  border-color: rgba(225, 6, 0, 0.5);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.8), 0 0 30px rgba(225, 6, 0, 0.1);
+}
+
+.stepHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 15px;
+}
+
+.stepLeft .stepHeader {
+  flex-direction: row-reverse;
+}
+
+@media (max-width: 768px) {
+  .stepLeft .stepHeader {
+    flex-direction: row;
+  }
+}
+
+.stepId {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 0.8;
+  color: var(--color-red);
+}
+
+.stepStat {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  color: var(--color-white);
+  background: rgba(255,255,255,0.05);
+  padding: 6px 12px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.stepTitle {
+  font-size: 1.8rem;
+  color: var(--color-white);
+  margin-bottom: 15px;
+}
+
+.stepDesc {
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.techAccent {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, transparent 50%, rgba(225,6,0,0.2) 50%);
+}
+
+.stepLeft .techAccent {
+  right: auto;
+  left: 0;
+  background: linear-gradient(225deg, transparent 50%, rgba(225,6,0,0.2) 50%);
+}
+
+@media (max-width: 768px) {
+  .stepLeft .techAccent {
+    left: auto;
+    right: 0;
+    background: linear-gradient(135deg, transparent 50%, rgba(225,6,0,0.2) 50%);
+  }
+}

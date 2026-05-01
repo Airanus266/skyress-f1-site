@@ -1,0 +1,143 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background-color: #050505;
+  color: #fff;
+  font-family: var(--font-display, sans-serif);
+  overflow: hidden;
+}
+
+.uiLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.title span {
+  color: #E10600;
+}
+
+.teamMembers {
+  display: flex;
+  gap: 2rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  letter-spacing: 0.05em;
+}
+
+.member {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.role {
+  color: #E10600;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+.controls {
+  pointer-events: auto;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.btn {
+  padding: 10px 20px;
+  background: transparent;
+  border: 1px solid #E10600;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:hover {
+  background: #E10600;
+}
+
+.fileInput {
+  display: none;
+}
+
+.uploadLabel {
+  padding: 10px 20px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: white;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.3s;
+  pointer-events: auto;
+}
+
+.uploadLabel:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+.analyticsPanel {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  background: rgba(0,0,0,0.8);
+  border: 1px solid #333;
+  padding: 1.5rem;
+  border-left: 3px solid #E10600;
+  pointer-events: auto;
+  min-width: 300px;
+}
+
+.analyticsTitle {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #E10600;
+}
+
+.statRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-family: monospace;
+  font-size: 1rem;
+}
+
+.hotspot {
+  background: rgba(225, 6, 0, 0.9);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  pointer-events: none;
+  border: 1px solid rgba(255,255,255,0.3);
+  transform: translate3d(-50%, -50%, 0);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}

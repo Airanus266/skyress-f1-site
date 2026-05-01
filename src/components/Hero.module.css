@@ -1,0 +1,407 @@
+@import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&display=swap');
+
+.heroSection {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  min-height: 850px;
+  background-color: #030303;
+  overflow: hidden;
+  color: #fff;
+  font-family: var(--font-primary);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Background Lighting Layers */
+.lightingCore {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  /* Pure Pitch black #000 to perfectly melt mix-blend-modes */
+  background: #000000;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* F1 Style Headers inside Hero to match exactly */
+.topNavRed {
+  position: relative;
+  width: 100%;
+  height: 35px;
+  background-color: #e10600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  z-index: 10;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 30px 100%, 0 0); /* Angled left corner if needed */
+}
+
+@media (max-width: 900px) {
+  .topNavRed { display: none; }
+}
+
+.topNavLogo {
+  font-family: 'Syncopate', sans-serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 1.2rem;
+  letter-spacing: -1px;
+}
+
+.topNavLinks {
+  display: flex;
+  gap: 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.topNavLinks span { cursor: pointer; transition: opacity 0.2s; }
+.topNavLinks span:hover { opacity: 0.7; }
+
+.secondaryNav {
+  position: relative;
+  width: 100%;
+  height: 60px;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  z-index: 10;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.seriesLogos {
+  display: flex;
+  gap: 15px;
+  font-family: 'Syncopate', sans-serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+.s1 { color: #e10600; }
+.s2 { color: #0090d0; }
+.s3 { color: #0050ff; }
+
+.mainNavLinks {
+  display: flex;
+  gap: 30px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+}
+.mainNavLinks span { cursor: pointer; transition: color 0.2s; }
+.mainNavLinks span:hover { color: #e10600; }
+
+@media (max-width: 900px) {
+  .secondaryNav { padding: 0 20px; }
+  .mainNavLinks { display: none; }
+}
+
+/* Main Hero Layout */
+.heroContent {
+  position: relative;
+  flex: 1;
+  display: flex;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  z-index: 5;
+  padding: 40px;
+}
+
+/* LEFT SIDE */
+.heroLeft {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 20px;
+  position: relative; /* CRITICAL: Activates Z-Index to place text OVER car */
+  z-index: 20;
+}
+
+.latestTag {
+  background-color: #e10600;
+  color: #fff;
+  padding: 4px 10px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  width: max-content;
+  border-radius: 2px;
+  margin-bottom: 20px;
+}
+
+.headline {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Syncopate', sans-serif;
+  line-height: 0.95;
+  margin-bottom: 15px;
+}
+
+.headlineTop {
+  font-size: 3.5rem;
+  color: transparent;
+  -webkit-text-stroke: 1px #fff;
+  letter-spacing: -1px;
+}
+
+.headlineBottom {
+  font-size: 4.5rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -2px;
+}
+
+.subhead {
+  font-size: 1.2rem;
+  color: #ccc;
+  margin-bottom: 30px;
+}
+
+.subhead span {
+  color: #e10600;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 50px;
+}
+
+.btnRed {
+  background-color: #e10600;
+  color: #fff;
+  border: 1px solid #e10600;
+  padding: 10px 25px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.btnOutline {
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 10px 25px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.btnOutline span {
+  color: #e10600;
+  font-style: italic;
+  font-family: 'Syncopate', sans-serif;
+}
+
+.infoBox {
+  border-left: 2px solid #e10600;
+  padding-left: 15px;
+  max-width: 300px;
+}
+
+.infoTitle {
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.infoDate {
+  font-size: 0.8rem;
+  color: #a0a0a0;
+  margin-bottom: 8px;
+}
+
+.infoText {
+  font-size: 0.75rem;
+  color: #888;
+  line-height: 1.5;
+}
+
+/* CENTER CAR */
+.heroCenter {
+  position: absolute;
+  top: 48%; /* Slightly raised to interact better with headline */
+  left: 60%; /* Shifted right off-center, as requested */
+  transform: translate(-50%, -50%);
+  width: 65%; /* Increased for dominant presence again */
+  height: 75%; /* Increased for structure */
+  z-index: 10;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.carFloat {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* Removed floating motion to keep it highly static and precise as requested */
+}
+
+.carImage {
+  object-fit: contain;
+  object-position: center bottom; 
+  z-index: 5;
+  position: relative;
+  transform: translateY(2%); 
+  /* Erases purely black background pixels seamlessly */
+  mix-blend-mode: lighten;
+}
+
+/* Deep isolated shadow */
+.carGroundShadow {
+  position: absolute;
+  bottom: 0%; 
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 35px;
+  background: #000;
+  border-radius: 50%;
+  filter: blur(20px);
+  box-shadow: 0 10px 60px 50px rgba(0, 0, 0, 0.95), 0 5px 30px 15px rgba(0, 0, 0, 0.9);
+  z-index: 1;
+  opacity: 1;
+}
+
+/* RIGHT SIDE */
+.heroRight {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  padding-right: 20px;
+  position: relative; /* CRITICAL: Activates Z-Index to place cards OVER car */
+  z-index: 20;
+}
+
+.sponsorCluster {
+  text-align: right;
+  margin-bottom: 60px;
+}
+
+.teamLogoText {
+  font-family: 'Syncopate', sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.teamLogoText span {
+  color: #e10600;
+  font-size: 1.5rem;
+}
+
+.driverCardPrimary {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 15px 20px;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(5px);
+  border-radius: 5px;
+  margin-bottom: 15px;
+  width: 280px;
+}
+
+.driverNumberBg {
+  position: absolute;
+  left: -60px;
+  top: -20px;
+  font-size: 8rem;
+  font-family: 'Syncopate', sans-serif;
+  font-weight: 700;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255,255,255,0.1);
+  line-height: 1;
+  z-index: -1;
+}
+
+.driverInfo {
+  flex: 1;
+}
+
+.driverName {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.driverPoints {
+  font-size: 0.75rem;
+  color: #a0a0a0;
+}
+
+.driverIcon {
+  width: 25px;
+  height: 25px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+}
+
+.driverCardSecondary {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 10px 15px;
+  background: rgba(0,0,0,0.2);
+  border-radius: 5px;
+  width: 220px;
+  opacity: 0.6;
+}
+
+.driverCardSecondary .driverName {
+  font-size: 0.85rem;
+}
+
+/* SPONSOR BAR DELETED as requested */
+
+@media (max-width: 1200px) {
+  .heroCenter { width: 80%; top: 50%; }
+  .headlineTop { font-size: 2.5rem; }
+  .headlineBottom { font-size: 3.5rem; }
+  .driverNumberBg { font-size: 6rem; left: -40px; }
+}
+
+@media (max-width: 900px) {
+  .heroContent { flex-direction: column; padding: 20px; }
+  .heroRight { align-items: flex-start; padding-top: 400px; padding-right: 0;}
+  .heroCenter { top: 45%; left: 50%; width: 100%; height: 50%; }
+}
